@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: messages
+  labels:
+    app: messages
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: messages
+      labels:
+        app: messages
+    spec:
+      containers:
+        - name: messages
+          image: samuelest/messages
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8090
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kube
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: messages

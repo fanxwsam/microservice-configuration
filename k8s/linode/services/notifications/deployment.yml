@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notifications
+  labels:
+    app: notifications
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: notifications
+      labels:
+        app: notifications
+    spec:
+      containers:
+        - name: notifications
+          image: samuelest/notifications
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8088
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: linodekube
+
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: notifications

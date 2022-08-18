@@ -1,0 +1,22 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: messages
+  datasource:
+    password: K+cgyDfUgtZYgv4e
+    url: jdbc:postgresql://lin-7127-1328-pgsql-primary.servers.linodedb.net:5432/messages
+    username: linpostgres
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+      format_sql: true
+    show-sql: true
+  zipkin:
+    base-url: http://zipkin:9411
+
+kafka:
+  topics: samservice
