@@ -98,30 +98,30 @@ services:
 
 
 
-#  eureka-server:
-#    container_name: eureka-server
-#    image: samuelest/eureka-server:latest
-#    ports:
-#      - "8761:8761"
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=docker
-#    networks:
-#      - spring
-#    depends_on:
-#      - zipkin
+  eureka-server:
+    container_name: eureka-server
+    image: samuelest/eureka-server:latest
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
 
-#  apigw:
-#    container_name: apigw
-#    image: samuelest/apigw:latest
-#    ports:
-#      - "8083:8083"
-#    environment:
-#      - SPRING_PROFILES_ACTIVE=docker
-#    networks:
-#      - spring
-#    depends_on:
-#      - zipkin
-#      - eureka-server
+  apigw:
+    container_name: apigw
+    image: samuelest/apigw:latest
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+      - eureka-server
 
   customer:
     container_name: customer
