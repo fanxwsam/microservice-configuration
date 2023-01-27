@@ -3,19 +3,19 @@ spring:
     name: apigw
   zipkin:
     base-url: http://localhost:9411
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: customer
-#          uri: lb://CUSTOMER
-#          predicates:
-#            - Path=cc/api/v1/customers/**
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+      routes:
+        - id: customer
+          uri: lb://CUSTOMER
+          predicates:
+            - Path=/api/v1/customers/**
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
 
 
 server:
