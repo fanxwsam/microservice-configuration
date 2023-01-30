@@ -105,6 +105,8 @@ Run microservices in local Docker containers:
   "lastName":"Jerry",
   "email":"tom_jerry@gmail.com"
   }
+  
+  the new version added api key, so before testing in Postman, please add configurations in 'Security->Header', apiKey = supersecure
 
 Run the whole environment on local Kubernetes environment (Minikube):
 
